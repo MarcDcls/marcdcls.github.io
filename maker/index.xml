@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maker on Site de Marc Duclusaud</title>
+    <link>https://marcdcls.github.io/maker/</link>
+    <description>Recent content in Maker on Site de Marc Duclusaud</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <copyright>Copyright &amp;copy; 2020 [Themefisher](https://themefisher.com) All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://marcdcls.github.io/maker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Formes</title>
+      <link>https://marcdcls.github.io/maker/formes/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/maker/formes/</guid>
+      <description>En cours de rédaction</description>
+    </item>
+    
+    <item>
+      <title>Hexaglobe</title>
+      <link>https://marcdcls.github.io/maker/hexaglobe/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/maker/hexaglobe/</guid>
+      <description>En cours de rédaction</description>
+    </item>
+    
+    <item>
+      <title>Muscle artificiel</title>
+      <link>https://marcdcls.github.io/maker/muscle_artificiel/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/maker/muscle_artificiel/</guid>
+      <description>En cours de rédaction</description>
+    </item>
+    
+    <item>
+      <title>Réduction - train épycycloïdal</title>
+      <link>https://marcdcls.github.io/maker/reduction_train_epicycloidal/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/maker/reduction_train_epicycloidal/</guid>
+      <description>En cours de rédaction</description>
+    </item>
+    
+    <item>
+      <title>Split Flap</title>
+      <link>https://marcdcls.github.io/maker/split_flap/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/maker/split_flap/</guid>
+      <description>En cours de rédaction</description>
+    </item>
+    
+  </channel>
+</rss>

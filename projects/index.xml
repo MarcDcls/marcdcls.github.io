@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projets on Site de Marc Duclusaud</title>
+    <link>https://marcdcls.github.io/projects/</link>
+    <description>Recent content in Projets on Site de Marc Duclusaud</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <copyright>Copyright &amp;copy; 2020 [Themefisher](https://themefisher.com) All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://marcdcls.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Megabot</title>
+      <link>https://marcdcls.github.io/projects/megabot/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/projects/megabot/</guid>
+      <description>Introduction Qu&amp;rsquo;est-ce que le Megabot ? Le Megabot est un robot quadrupède de grande envergure pouvant transporter un passager et dont la vocation première est d&amp;rsquo;être présenté lors d&amp;rsquo;évènements liés à la robotique.</description>
+    </item>
+    
+    <item>
+      <title>Sand Table</title>
+      <link>https://marcdcls.github.io/projects/sandtable/</link>
+      <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/projects/sandtable/</guid>
+      <description>Introduction Sand Table Groupe 1
+De Marc Duclusaud dans la catégorie Maker2021	 Le but de ce projet est de construire une « sand drawing table ». Nous prendrons de l’inspiration sur le travail de l’entreprise Sisyphus qui vend ce genre de table.</description>
+    </item>
+    
+  </channel>
+</rss>
