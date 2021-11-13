@@ -6,7 +6,7 @@
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Contrôle, planification et simulation d&#39;un robot quadrupède à vérins électriques de grande envergure">
+  <meta name="description" content="L&#39;objectif de ce projet est la mise en place d&#39;un algorithme de marche courbe sur un robot quadrupède à vérins électriques de grande envergure : le Megabot. Il se découpe en 3 parties majeures que sont l&#39;élaboration du contrôle du robot par sa modélisation cinématique, la planification de sa marche et sa simulation sur PyBullet.">
   <meta name="author" content="Marc Duclusaud">
   <meta name="generator" content="Hugo 0.89.2" />
 
@@ -50,7 +50,7 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-              <img src="https://marcdcls.github.io/" alt="" width="40px" class="img-responsive">
+              <img src="https://marcdcls.github.io" alt="" width="40px" class="img-responsive">
             </a>
           </div>
           
@@ -89,7 +89,7 @@
       <div class="col-md-12">
         <div class="block">
           <h1>Megabot</h1>
-          <p>Contrôle, planification et simulation d&#39;un robot quadrupède à vérins électriques de grande envergure</p>
+          <p>L&#39;objectif de ce projet est la mise en place d&#39;un algorithme de marche courbe sur un robot quadrupède à vérins électriques de grande envergure : le Megabot. Il se découpe en 3 parties majeures que sont l&#39;élaboration du contrôle du robot par sa modélisation cinématique, la planification de sa marche et sa simulation sur PyBullet.</p>
         </div>
       </div>
     </div>
@@ -104,7 +104,10 @@
 					<h2 class="post-title">Megabot</h2>
 					<div class="post-meta">
 						<ul>
-							<li><i class="ion-calendar"></i> October 17, 2021</li>
+							<li><i class="ion-calendar"></i>
+								17
+								octobre 2021
+							</li>
 						</ul>
 					</div>
 					<div class="post-content post-excerpt">
@@ -118,6 +121,7 @@
 <h2 id="mission">Mission</h2>
 <p>L&rsquo;objectif de ce projet est dans un premier temps de revoir le contrôle du robot en améliorant son modèle cinématique, c&rsquo;est à dire revoir l&rsquo;ensemble des algorithmes effectuant la traduction d&rsquo;un ordre de position en une commande d&rsquo;élongation de vérins. Après cela, il s&rsquo;agit d&rsquo;implémenter un algorithme de marche afin que le robot puisse suivre un déplacement courbe. Enfin, afin de vérifier la validité des algorithmes implémentés indépendemment des contraintes réelles telles que la déformation de la structure sous son poids, il faudra modéliser le Megabot et l&rsquo;intégrer au simulateur PyBullet.
  </p>
+<p class="p-boxed"> </p>
 <h1 id="contrôle">Contrôle</h1>
 <p>Le contrôle a pour objectif l&rsquo;établissement de la cinématique inverse du Megabot, c&rsquo;est à dire l&rsquo;implémentation d&rsquo;un ensemble de méthodes permettant de déterminer les élongations des 12 vérins nécessaires à l’obtention d’une position donnée. En général la cinématique inverse peut être calculée par des bibliothèques dédiées en leur fournissant un modèle URDF du robot (par exemple pinocchio en python). Néanmmoins, cette option n&rsquo;a pas pu être mise en place dans le cas du Megabot pour 2 raisons :</p>
 <ul>
@@ -130,7 +134,6 @@
 </ul>
 <p>Nous avons donc décidé de redéfinir clairement la cinématique du Megabot.</p>
 <h2 id="cinématique-du-megabot">Cinématique du Megabot</h2>
-<h3 id="présentation-de-la-problématique">Présentation de la problématique</h3>
 <p>Etablir le modèle cinématique direct d&rsquo;un robot consiste à élaborer un ensemble de méthodes de calcul permettant de déterminer la position du robot à partir de valeurs articulaires d&rsquo;entrée. Dans notre cas, il s&rsquo;agit de créer une ou un ensemble de fonctions prenant en entrée des élongations de vérin valides et retournant la position du Megabot. Ce problème est solvable de manière analytique assez simplement.</p>
 <p>Etablir le modèle cinématique inverse d&rsquo;un robot en revanche consiste à faire le travail inverse : on veut obtenir les valeurs articulaires à partir d&rsquo;une position d&rsquo;entrée. Ce sens est bien plus complexe que le précédent et ne peut pas être résolu de manière analytique dans bien des cas, dont celui du Megabot.</p>
 <p>Une solution classique à ce problème est d&rsquo;avoir recours à la matrice jacobienne associée au modèle cinématique direct : il s&rsquo;agit de la matrice des dérivées partielles de notre cinématique directe. En effet, elle permet d&rsquo;approximer linéairement dans le cas de petites variations la relation entre nos valeurs articulaires et nos valeurs de position dans le sens direct. Une fois cette jacobienne \(J\) déterminée, il devient possible de déterminer le modèle cinématique inverse en résolvant un problème d&rsquo;optimisation quadratique de la forme :</p>
@@ -151,7 +154,7 @@
 <details class="details-demo">
 <summary class="summary-demo">
 <center>
-<pre><code>Démonstration
+<pre><code>Détails de la démonstration
 </code></pre>
 </center>
 </summary>
@@ -192,19 +195,48 @@
 &nbsp;
 <!-- Fin démo -->
 <p>Cette façon de résoudre la cinématique inverse est un exemple d&rsquo;application de la méthode des moindres carrés. La résolution de ce problème quadratique est réalisable à l&rsquo;aide d&rsquo;un solveur QP tel que \(\verb|qpsolvers|\) en Pyhton.</p>
-<h3 id="calcul-de-la-jacobienne-de-la-cinématique-directe">Calcul de la jacobienne de la cinématique directe</h3>
+<h2 id="calcul-de-la-jacobienne-de-la-cinématique-directe">Calcul de la jacobienne de la cinématique directe</h2>
 <p>Nous allons a présent élaborer la matrice jacobienne associée à la cinématique directe du Megabot. Nous l&rsquo;élaborerons tout d&rsquo;abord relativement à une patte dans son plan avant de la généraliser à l&rsquo;ensemble des pattes dans le référentiel monde.</p>
-<h4 id="cinématique-directe-dans-le-plan-de-la-patte">Cinématique directe dans le plan de la patte</h4>
+<h3 id="cinématique-directe-dans-le-plan-de-la-patte">Cinématique directe dans le plan de la patte</h3>
 <p>Pour déterminer la jacobienne associée à notre cinématique directe dans le plan de la patte, il est nécessaire de formaliser notre problème. Nous allons calculer successivement les écarts de position des points \(D\), \(E\), \(F\), \(G\), \(H\), \(I\) et \(J\) représentés sur le schéma suivant en fonction des variations d&rsquo;élongation \(\Delta v_1\) et \(\Delta v_2\) des vérins.</p>
 <center>
 <img src="/images/projects/megabot/schema_leg.webp" alt="Image not found !" width="80%"/>
 </center>
 &nbsp;
+<p>Ces calculs aboutissent à l&rsquo;obtention de la matrice \(M_J\) telle que :</p>
+<div>
+\begin{equation*}
+    \Delta J =
+    M_J \cdot
+    \begin{bmatrix}
+    \Delta v_{1}\\
+    \Delta v_{2} \end{bmatrix}
+\end{equation*}
+</div>
+&nbsp;
+<p>On remarque alors que cette matrice est la jacobienne \(J_2\) associée à notre modèle cinématique direct dans le plan de la patte :</p>
+<div>
+\begin{equation*}
+    \boxed{\begin{bmatrix}
+    \Delta x\\
+    \Delta y \end{bmatrix}
+     =
+    J_2 \cdot
+    \begin{bmatrix}
+    \Delta v_{1}\\
+    \Delta v_{2} \end{bmatrix}
+    \hspace{0.2cm}
+    \text{avec}
+    \hspace{0.2cm}
+    J_2 = M_J}
+\end{equation*}
+</div>
+&nbsp;
 <!-- Calcul de J2 -->
 <details class="details-demo">
 <summary class="summary-demo">
 <center>
-<pre><code>Calcul des écarts
+<pre><code>Détails du calcul des écarts
 </code></pre>
 </center>
 </summary>
@@ -507,42 +539,84 @@ S_{3}
 </details>
 &nbsp;
 <!-- Fin du calcul de J2 -->
-<p>Une fois les écarts successifs calculés, nous obtenons la matrice \(M_J\) telle que :</p>
-<div>
-\begin{equation*}
-    \Delta J =
-    M_J \cdot
-    \begin{bmatrix}
-    \Delta v_{1}\\
-    \Delta v_{2} \end{bmatrix}
-\end{equation*}
-</div>
-&nbsp;
-<p>On remarque alors que cette matrice est la jacobienne \(J_2\) associée à notre modèle cinématique direct dans le plan de la patte :</p>
-<div>
-\begin{equation*}
-    \boxed{\begin{bmatrix}
-    \Delta x\\
-    \Delta y \end{bmatrix}
-     =
-    J_2 \cdot
-    \begin{bmatrix}
-    \Delta v_{1}\\
-    \Delta v_{2} \end{bmatrix}
-    \hspace{0.2cm}
-    \text{avec}
-    \hspace{0.2cm}
-    J_2 = M_J}
-\end{equation*}
-</div>
-&nbsp;
-<h4 id="cinématique-directe-dans-lespace">Cinématique directe dans l&rsquo;espace</h4>
+<h3 id="cinématique-directe-dans-lespace-de-la-patte">Cinématique directe dans l&rsquo;espace de la patte</h3>
 <p>L&rsquo;objectif à présent est de ramener notre modèle dans l&rsquo;espace en ajoutant l&rsquo;influence du vérin \(v_3\) sur notre cinématique directe. Le référentiel cible est le référentiel \((\overrightarrow{x}, \overrightarrow{y}, \overrightarrow{z})\) représenté sur la figure suivante. On notera que le vecteur \(\overrightarrow{Y}\) utilisés dans la partie précédente est devenu le vecteur \(\overrightarrow{Z}\) dans cette modélisation à des fins de convention.</p>
 <p> </p>
 <center>
 <img src="/images/projects/megabot/chgt_ref.webp" alt="Image not found !" width="80%"/>
 </center>
 <p> </p>
+<p>Soit \((X, Z)\) les coordonnées de l&rsquo;extrémité \(J\) de la patte dans son plan. Il faut tout d&rsquo;abord exprimer l&rsquo;angle \(\alpha\) de la patte au châssis en fonction de l&rsquo;élongation du vérin \(v_3\). Cela permet d&rsquo;aboutir à une expression des variations de \(X\), \(Z\) et \(\alpha\) en fonction des variations de \(v_1\), \(v_2\) et \(v_3\).</p>
+<div>
+\begin{equation*}
+    \begin{bmatrix}
+        \Delta X \\ \Delta Z \\ \Delta\alpha 
+    \end{bmatrix} = A \cdot 
+        \begin{bmatrix}
+        \Delta v_{1} \\ \Delta v_{2} \\ \Delta v_{3}
+    \end{bmatrix}
+    \hspace{0.2cm}
+    \text{avec}
+    \hspace{0.2cm}
+    A = \begin{bmatrix}
+        J_2 & \begin{matrix}0 \\ 0\end{matrix} \\
+        \begin{matrix} 0 & 0\end{matrix} & \dfrac{v_3}{\sin(\alpha - \beta) \cdot d_{OK}d_{OL}}
+    \end{bmatrix}
+\end{equation*}
+</div>
+&nbsp;
+<p>Une fois cette relation explicitée, il faut traduire la rotation d&rsquo;angle \(\alpha\) autour de l&rsquo;axe \(\overrightarrow Z\) sous forme matricielle afin de se ramener au référentiel \((\overrightarrow x, \overrightarrow y, \overrightarrow z)\). On obtient alors la relation suivante :</p>
+<div>
+\begin{equation*}
+    \begin{bmatrix}
+        \Delta x \\ \Delta y \\ \Delta z 
+    \end{bmatrix} = B \cdot
+    \begin{bmatrix}
+        \Delta X \\ \Delta Z \\ \Delta \alpha
+    \end{bmatrix}
+    \hspace{0.2cm}
+    \text{avec}
+    \hspace{0.2cm}
+    B =     
+    \begin{bmatrix}
+        \cos(\frac{\pi}{2}-\alpha) & 0 & X \cdot \sin(\frac{\pi}{2}-\alpha) \\
+        \sin(\frac{\pi}{2}-\alpha) & 0 & -X \cdot \cos(\frac{\pi}{2}-\alpha)\\
+        0 & 1 & 0
+    \end{bmatrix}
+\end{equation*}
+</div>
+&nbsp;
+<p>A partir des matrices \(A\) et \(B\), il devient possible de construire \(J_3\), la matrice reliant \((\Delta x, \Delta y, \Delta z)\) à \((\Delta v_1, \Delta v_2, \Delta v_3)\) :</p>
+<div>
+\begin{equation*}
+    \boxed{\begin{bmatrix}
+    \Delta x\\
+    \Delta y \\
+    \Delta z
+    \end{bmatrix}
+     =
+    J_3 \cdot
+    \begin{bmatrix}
+    \Delta v_{1}\\
+    \Delta v_{2} \\
+    \Delta v_3
+    \end{bmatrix}
+    \hspace{0.2cm}
+    \text{avec}
+    \hspace{0.2cm}
+    J_3 = B \cdot A
+    \hspace{0.2cm}}
+\end{equation*}
+</div>
+&nbsp;
+<!-- Passage en Cartésien -->
+<details class="details-demo">
+<summary class="summary-demo">
+<center>
+<pre><code>Détails du changement de référentiel
+</code></pre>
+</center>
+</summary>
 <p>En premier lieu, nous cherchons à exprimer l&rsquo;angle \(\alpha\) de la patte au châssis en fonction de l&rsquo;élongation du vérin \(v_3\). Pour cela, nous nous plaçons dans le triangle \(KLO\).</p>
 <center>
 <img src="/images/projects/megabot/angle.webp" alt="Image not found !" width="70%"/>
@@ -601,11 +675,11 @@ S_{3}
         J_2 & \begin{matrix}0 \\ 0\end{matrix} \\
         \begin{matrix} 0 & 0\end{matrix} & \dfrac{v_3}{\sin(\alpha - \beta) \cdot d_{OK}d_{OL}}
     \end{bmatrix}}
-    \label{A}
 \end{equation*}
 </div>
 &nbsp;
-<p>La dernière étape permettant l&rsquo;obtention de notre jacobienne dans le référentiel \((\overrightarrow{x}, \overrightarrow{y}, \overrightarrow{z})\) est d&rsquo;obtenir la matrice reliant \((\Delta x, \Delta y, \Delta z)\) à \((\Delta X, \Delta Z, \Delta \alpha)\). Pour cela, nous devons étudier la rotation d&rsquo;angle \(\alpha\) séparant \((\overrightarrow{X}, \overrightarrow{Y}, \overrightarrow{Z})\) et \((\overrightarrow{x}, \overrightarrow{y}, \overrightarrow{z})\).</p>
+<p class="p-boxed"></p>
+<p>La seconde étape permettant l&rsquo;obtention de notre jacobienne dans le référentiel \((\overrightarrow{x}, \overrightarrow{y}, \overrightarrow{z})\) est d&rsquo;obtenir la matrice reliant \((\Delta x, \Delta y, \Delta z)\) à \((\Delta X, \Delta Z, \Delta \alpha)\). Pour cela, nous devons étudier la rotation d&rsquo;angle \(\alpha\) séparant \((\overrightarrow{X}, \overrightarrow{Y}, \overrightarrow{Z})\) et \((\overrightarrow{x}, \overrightarrow{y}, \overrightarrow{z})\).</p>
 <center>
 <img src="/images/projects/megabot/rota.webp" alt="Image not found !" width="50%"/>
 </center>
@@ -714,34 +788,13 @@ S_{3}
         \sin(\frac{\pi}{2}-\alpha) & 0 & -X \cdot \cos(\frac{\pi}{2}-\alpha)\\
         0 & 1 & 0
     \end{bmatrix}}
-    \label{B}
 \end{equation*}
 </div>
 &nbsp;
-<p>A partir des matrices \(A\) et \(B\), il devient possible de construire \(J_3\), la matrice reliant \((\Delta x, \Delta y, \Delta z)\) à \((\Delta v_1, \Delta v_2, \Delta v_3)\) :</p>
-<div>
-\begin{equation*}
-    \boxed{\begin{bmatrix}
-    \Delta x\\
-    \Delta y \\
-    \Delta z
-    \end{bmatrix}
-     =
-    J_3 \cdot
-    \begin{bmatrix}
-    \Delta v_{1}\\
-    \Delta v_{2} \\
-    \Delta v_3
-    \end{bmatrix}
-    \hspace{0.2cm}
-    \text{avec}
-    \hspace{0.2cm}
-    J_3 = B \cdot A
-    \hspace{0.2cm}}
-\end{equation*}
-</div>
+</details>
 &nbsp;
-<h4 id="généralisation">Généralisation</h4>
+<!-- Fin passage en Cartésien -->
+<h3 id="généralisation">Généralisation</h3>
 <p>Nous avons explicité \(J_3\), la jacobienne associée au modèle cinématique direct d&rsquo;une patte du Megabot dans son référentiel. Afin de pouvoir appliquer un contrôle simultané sur l&rsquo;ensemble des pattes, il est nécessaire de généraliser notre modèle cinématique à l&rsquo;ensemble de notre robot.</p>
 <center>
 <img src="/images/projects/megabot/robot_ref.webp" alt="Image not found !" width="80%"/>
@@ -805,7 +858,7 @@ S_{3}
 </div>
 &nbsp;
 <p>Les jacobiennes \(J_2\), \(J_3\) et \(J_{12}\) calculées permettent toutes d&rsquo;élaborer des algorithmes de contrôle respectivement d&rsquo;une patte dans son plan, d&rsquo;une patte dans son référentiel et de l&rsquo;ensemble des pattes dans le référentiel du Megabot en utilisant un solveur QP. Néanmoins, la problématique importante de gestion du centre de gravité peut également être traitée dès la phase de contrôle, c&rsquo;est pourquoi nous allons l&rsquo;intégrer à nos équations.</p>
-<h3 id="gestion-du-centre-de-gravité">Gestion du centre de gravité</h3>
+<h2 id="gestion-du-centre-de-gravité">Gestion du centre de gravité</h2>
 <p>En effet, une problématique importante que nous allons chercher à résoudre est le maintien du projeté du centre de gravité du robot dans son polygone de sustentation, c&rsquo;est à dire le polygone convexe formé par les points de contact entre le sol et le robot. Dans le cas où le centre de gravité du Megabot viendrait à ne plus être au dessus de cette zone alors il basculerait, ce qui modifierait ses pattes au sol et fausserait toute planification de mouvement.</p>
 <p>Nous avons implémenté 2 modes de contrôle principaux, chacun ayant des avantages et inconvénients. Le premier ne fait que contraindre le centre de gravité au dessus du polygone de sustentation par l&rsquo;ajout de contraintes dans le solveur QP. Le second quant à lui permet de fournir en entrée non pas seulement une trajectoire pour les pattes du robot, mais également pour son centre de gravité.</p>
 <p>Dans les 2 cas, il est nécessaire d&rsquo;élaborer la jacobienne associée au déplacement du centre de gravité du Megabot. Connaissant le poids de chacune des pièces du Megabot, il est possible de déterminer les variations \(\Delta C\) du centre de gravité à partir de \(\Delta V\) et des jacobiennes du modèle cinématique direct. En effet la position du centre de gravité n&rsquo;est qu&rsquo;une combinaison linéaire des positions de chacune des articulations du robot. On obtient alord une relation du type :</p>
@@ -817,7 +870,7 @@ S_{3}
 \end{equation*}
 </div>
 &nbsp;
-<h4 id="contrainte-du-centre-de-gravité">Contrainte du centre de gravité</h4>
+<h3 id="contrainte-du-centre-de-gravité">Contrainte du centre de gravité</h3>
 <p>Une fois la jacobienne \(J_C\) explicitée, il devient possible d&rsquo;utiliser les variables \(G\) et \(h\) du solveur QP afin de contraindre le centre de gravité. En posant \(G = J_C\) et en choisissant \(h\) en accord avec les contraintes à appliquer au centre de gravité, le solveur garantira alors :</p>
 <div>
 \begin{equation*}
@@ -828,7 +881,7 @@ S_{3}
 <p>Notons qu&rsquo;ici chaques lignes de \(G\) et \(h\) correspondent à une contrainte sur une coordonnées de centre de gravité. Dans les faits, on souhaite contraindre le projeté du centre de gravité dans le polygone de sustentation, il faut donc construire \(G\) de sorte à ce que chacune de ses lignes soit une combinaison linéaire des lignes de \(J_{C}\), tandis que \(h\) contiendrait les valeurs de contrainte associées. Dans le cas où nous aurions besoin de \(n\) contraintes sur les coordonnées du centre de gravité pour le maintenir dans les polygone de sustentation, \(G\) et \(h\) seraient alors constitués de \(n\) lignes.</p>
 <p>Cette solution apporte une forme de sécurité tout en laissant au centre de gravité une certaine liberté. Elle semble adaptée à un robot possédant une zone de sustentation constante au cours de son déplacement car, le cas échéant, elle permet de contraindre le centre de gravité à cette zone et de ne plus avoir à s&rsquo;en préoccuper durant la phase de planification.</p>
 <p>Ce n&rsquo;est malheureusement pas le cas du Megabot, c&rsquo;est pourquoi nous avons opté pour la seconde solution qui offre un contrôle exact du centre de gravité mais qui en contrepartie nécessite sa prise en compte dans la planification.</p>
-<h4 id="contrôle-du-centre-de-gravité">Contrôle du centre de gravité</h4>
+<h3 id="contrôle-du-centre-de-gravité">Contrôle du centre de gravité</h3>
 <p>Afin de commander la position du centre de gravité, il est nécessaire de l&rsquo;intégrer aux entrées du solveur QP. On obtient alors la relation suivante en reprenant les notations précédentes:</p>
 <div>
 \begin{equation*}
@@ -851,16 +904,16 @@ S_{3}
 \end{equation*}
 </div>
 &nbsp;
-<p>La nouvelle jacobienne \(J_{15:12}\) ainsi construite permet bien de prendre en compte la position du centre de gravité dans notre cinématique directe, néanmoins la matrice \(J_{15:12}\) ne peut pas être exploitée telle quelle par le solveur QP car la matrice \(J_{15:12}\hspace{0.15cm}^TJ_{15:12}\) est singulière (cf. démonstration effectuée dans la présentation de la problématique). Une solution pour contourner la singularité de cette matrice, est d&rsquo;ajouter une d&rsquo;ajouter un terme de régularisation à notre minimisation.</p>
+<p>La nouvelle jacobienne \(J_{15:12}\) ainsi construite permet bien de prendre en compte la position du centre de gravité dans notre cinématique directe, néanmoins la matrice \(J_{15:12}\) ne peut pas être exploitée telle quelle par le solveur QP car la matrice \(J_{15:12}\hspace{0.15cm}^TJ_{15:12}\) est singulière (cf. démonstration effectuée en début de partie). Une solution pour contourner la singularité de cette matrice, est d&rsquo;ajouter un terme de régularisation à notre minimisation.</p>
 <!-- Régularisation -->
 <details class="details-demo">
 <summary class="summary-demo">
 <center>
-<pre><code>Ajout d'un terme de régularisation
+<pre><code>Détails de l'ajout d'un terme de régularisation
 </code></pre>
 </center>
 </summary>
-<p>de Tikhonov coefficient \(r\) à notre optimisation quadratique</p>
+<p>On cherche à ajouter une régularisation de Tikhonov de coefficient \(r\) à notre optimisation quadratique. En reprenant les notations de la démonstration de début de partie notre nouvelle minimisation devient alors :</p>
 <div>
 \begin{equation*}
     \begin{array}{cc}
@@ -885,7 +938,7 @@ S_{3}
 <p>L&rsquo;objectif à minimiser devient alors :</p>
 <div>
 \begin{equation*}
-    \hspace{-0.5cm}
+    \hspace{-0.3cm}
     \begin{array}{rcl}
          ||\overline{X_{k+1}} - X_{k+1}||^2 + r ||\Delta V_{k+1}||^2 & = & \Delta V_k^T (J_{15:12}\hspace{0.15cm}^TJ_{15:12} + r Id_{12})\Delta V_k - 2 \left( \overline{\Delta X_{k}}^T J_{15:12} \Delta V_k \right) + CST
     \end{array}
@@ -903,22 +956,16 @@ S_{3}
 \end{equation*}
 </div>
 &nbsp;
-<p>Ainsi on transforme la matrice singulière $J_{15:12}\hspace{0.15cm}^TJ_{15:12}$ de notre précédente optimisation quadratique en la matrice $J_{15:12}\hspace{0.15cm}^TJ_{15:12} + r Id_{12}$. Cela permet d&rsquo;en assurer la non-singularité, car il n&rsquo;y a plus de dépendance entre les lignes de la matrice. Cette régularisation implique également l&rsquo;homogénisation des variations de vérins, l&rsquo;homogénisation étant d&rsquo;autant plus forte que la valeur choisie pour $r$ est élevée.</p>
+<p>Ainsi on transforme la matrice singulière \(J_{15:12}\hspace{0.15cm}^TJ_{15:12}\) de notre précédente optimisation quadratique en la matrice \(J_{15:12}\hspace{0.15cm}^TJ_{15:12} + r Id_{12}\). Cela permet d&rsquo;en assurer la non-singularité, car il n&rsquo;y a plus de dépendance entre les lignes de la matrice. Cette régularisation implique également l&rsquo;homogénisation des variations de vérins, l&rsquo;homogénisation étant d&rsquo;autant plus forte que la valeur choisie pour \(r\) est élevée.</p>
 </details>
+&nbsp;
 <!-- Fin régularisation -->
-<h3 id="commande-sur-la-position-des-pattes">Commande sur la position des pattes</h3>
-<p>Le premier mode de contrôle prend en entrée les nouvelles positions absolues des extrémités des 4 pattes du Megabot et renvoie les variations d&rsquo;élongation des vérins, de la position du centre du robot $O$ et de son orientation $\Omega$. Il contraint les élongations des vérins dans leurs limites physiques, le centre de gravité au dessus du triangle de sustentation formé par les 3 pattes au sol et permet de contraindre les déplacements et l&rsquo;inclinaison du centre du robot, ce qui a pour objectif d&rsquo;améliorer le confort du passager.</p>
-<p>L&rsquo;avantage de ce modèle est son exactitude. Pour une entrée réalisable physiquement, le modèle retourne des élongations de vérins conformes à celles attendues, c&rsquo;est-à-dire que l&rsquo;application de la cinématique directe à ces élongations aboutit à notre entrée de position. Cependant, il possède un défaut : contraindre le centre de gravité du robot n&rsquo;est pas suffisant.</p>
-<p>Dans l&rsquo;optique de la planification qui va suivre la phase de contrôle, si le centre de gravité est laissé libre dans son triangle de sustentation, nous risquons lors du changement de patte en déplacement de nous retrouver dans le cas où le centre de gravité est à l&rsquo;extérieur du triangle de sustentation dès le début du mouvement, ce qui se traduira par un soulèvement de la patte opposée à celle souhaitée et à une impossibilité pour le solveur de trouver une solution à notre problème d&rsquo;optimisation. C&rsquo;est pourquoi un second mode de contrôle a été développé.</p>
-<h3 id="commande-sur-les-positions-de-la-patte-flottante-et-le-centre-de-gravité">Commande sur les positions de la patte flottante et le centre de gravité</h3>
-<p>Cette fois-ci les entrées ont été réduites à uniquement la nouvelle position de la patte en déplacement (les 3 autres restant au sol, elles ne doivent pas bouger) et celle du projeté du centre de gravité, tandis que les sorties sont restées inchangées.</p>
-<p>Avec ce nouveau modèle, il est devenu possible d&rsquo;effectuer une commande de position à la fois sur la patte et le centre de gravité, ce qui assure un contrôle du non basculement du robot. Néanmoins, un de ses inconvénients est que dans le cas de déplacements du la patte et du centre de gravité incompatibles, la sortie peut s&rsquo;écarter de celle attendue.</p>
-<p>########################################################################################################</p>
+<p class="p-boxed"> </p>
 <h1 id="planification">Planification</h1>
 <p>La phase de planification consiste en l&rsquo;élaboration du mouvement indépendemment des réflexions liées au contrôle. Il s&rsquo;agit de savoir ce que va faire le robot et non comment il va le réaliser et se traduit par l&rsquo;implémentation d&rsquo;algorithmes fournissant des positions successives pour les pattes et le centre de gravité du Megabot.</p>
 <h2 id="elaboration-des-trajectoires">Elaboration des trajectoires</h2>
 <p>Nous avions pour objectif de permettre au Megabot un déplacement courbe. De ce fait nous avons tout d&rsquo;abord cherché à traduire une entrée de direction (2 dimensions) et de rotation (1 dimension) en une trajectoire pour le Megabot. Cette modélisation a pour objectif de pouvoir commander le robot à l&rsquo;aide d&rsquo;une manette à 2 joysticks.</p>
-<p>La direction permet de définir le vecteur \(\overrightarrow{d}\) représenté sur le schéma suivant tandis que la valeur de rotation permet de définir la position du centre de rotation \(R\) sur l&rsquo;axe perpendiculaire à la direction : plus la valeur est proche de 0, moins la courbe est importante et plus \(R\) est éloigné, à droite pour une rotation positive et à gauche pour une rotation négative. Les trajectoires des 4 pattes sont ensuite déterminées en traçant les cercles de centre $R$ passant par leurs extrémités.</p>
+<p>La direction permet de définir le vecteur \(\overrightarrow{d}\) représenté sur le schéma suivant tandis que la valeur de rotation permet de définir la position du centre de rotation \(R\) sur l&rsquo;axe perpendiculaire à la direction : plus la valeur est proche de 0, moins la courbe est importante et plus \(R\) est éloigné, à droite pour une rotation positive et à gauche pour une rotation négative. Les trajectoires des 4 pattes sont ensuite déterminées en traçant les cercles de centre \(R\) passant par leurs extrémités.</p>
 <center>
 <img src="/images/projects/megabot/curve.webp" alt="Image not found !" width="90%"/>
 </center>
@@ -932,6 +979,7 @@ S_{3}
 <h2 id="algorithme-de-marche">Algorithme de marche</h2>
 <p>Une fois les trajectoires des extrémités des 4 pattes et du centre de gravité établies, nous avons pour chacune des phases détaillées sur la figure précédente procédé à une discrétisation du parcours des pattes et du centre de gravité. Le point \(C\) est mis à jour à chaque étape de cette discrétisation, ce qui assure un maintien du centre de gravité au dessus du polygone de sustentation.</p>
 <p>Durant la phase d&rsquo;initialisation, les 4 pattes sont fixes au sol et le centre de gravité est déplacé vers l&rsquo;arrière du Megabot. Ensuite, lors de chacune des phases suivantes, une patte est levée, déplacée le long de sa trajectoire puis abaissée en même temps que le centre de gravité effectue un quart de tour autour de \(C\). Cette stratégie implique que les pattes sont déplacées une à une dans le sens anti-horaire. L&rsquo;algorithme de contrôle implémenté dans la partie Contôle permet de traduire cette commande en élongations de vérins et d&rsquo;effectuer la marche.</p>
+<p class="p-boxed"> </p>
 <h1 id="simulation">Simulation</h1>
 <p>Afin de vérifier notre algorithme de marche il est nécessaire de procéder à une simulation du Megabot. En effet, bien que nous ayons effectué des tests unitaires et d&rsquo;intégration de nos fonctions au cours du développement, tester directement notre marche sur le Megabot réel serait trop précipité, car dans le cas où nous constaterions des écarts entre le résultat et le comportement attendu, rien ne nous garantirait que l&rsquo;erreur proviendrait bien de notre partie algorithmique et non de notre électronique ou de notre mécanique.</p>
 <p>Afin de simuler la physique lors des tests de marche du Megabot, nous avons choisis d&rsquo;utiliser PyBullet. Ce choix implique tout d&rsquo;abord la réalisation d&rsquo;un fichier URDF contenant une modélisation du Megabot.</p>
