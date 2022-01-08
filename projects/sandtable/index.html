@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-Us"><head>
+<html lang="fr-fr"><head>
   <meta charset="utf-8">
   <title>Sand Table</title>
 
@@ -111,19 +111,30 @@
 						</ul>
 					</div>
 					<div class="post-content post-excerpt">
-						<h1 id="introduction">Introduction</h1>
-<p>Sand Table Groupe 1</p>
-<pre><code>De Marc Duclusaud dans la catégorie Maker2021	
-</code></pre>
-<p>Le but de ce projet est de construire une « sand drawing table ». Nous prendrons de l’inspiration sur le travail de l’entreprise Sisyphus qui vend ce genre de table.</p>
-<p>Lien vers une vidéo de la table finale : <a href="https://drive.google.com/file/d/1f2rt9aPrNuJFtPfoBBeAOd0koTvqRyuu/view?usp=sharing">https://drive.google.com/file/d/1f2rt9aPrNuJFtPfoBBeAOd0koTvqRyuu/view?usp=sharing</a></p>
-<p>Le principe est simple : une bille guidée par un aimant se déplace sur le sable créant des dessins.</p>
-<p>Pour plus d’information sur la presentation du projet : <a href="https://docs.google.com/presentation/d/1pck66LWqkjd7cfp0bzTarUT_7bWldCSIgwggRyMb7JY/edit?usp=sharing">https://docs.google.com/presentation/d/1pck66LWqkjd7cfp0bzTarUT_7bWldCSIgwggRyMb7JY/edit?usp=sharing</a></p>
-<p>Point d’avancement à mi-parcours : <a href="https://docs.google.com/presentation/d/1Eqf4eWZo3C32ohfp6-pZT9416RJLI0T7MQQeR5BHg9E/edit?usp=sharing">https://docs.google.com/presentation/d/1Eqf4eWZo3C32ohfp6-pZT9416RJLI0T7MQQeR5BHg9E/edit?usp=sharing</a></p>
-<p>Soutenance : <a href="https://docs.google.com/presentation/d/1yPLmFd40Nh6SfzoZcMZA2ZwRSW8NaPOQ-JQ3lznqQBg/edit?usp=sharing">https://docs.google.com/presentation/d/1yPLmFd40Nh6SfzoZcMZA2ZwRSW8NaPOQ-JQ3lznqQBg/edit?usp=sharing</a></p>
-<p>Decou / Duclusaud
+						<!-- Lien vers une vidéo de la table finale : https://drive.google.com/file/d/1f2rt9aPrNuJFtPfoBBeAOd0koTvqRyuu/view?usp=sharing
+
+Le principe est simple : une bille guidée par un aimant se déplace sur le sable créant des dessins.
+
+Pour plus d’information sur la presentation du projet : https://docs.google.com/presentation/d/1pck66LWqkjd7cfp0bzTarUT_7bWldCSIgwggRyMb7JY/edit?usp=sharing
+
+Point d’avancement à mi-parcours : https://docs.google.com/presentation/d/1Eqf4eWZo3C32ohfp6-pZT9416RJLI0T7MQQeR5BHg9E/edit?usp=sharing
+
+Soutenance : https://docs.google.com/presentation/d/1yPLmFd40Nh6SfzoZcMZA2ZwRSW8NaPOQ-JQ3lznqQBg/edit?usp=sharing
+
+Decou / Duclusaud
 Problématiques initiales et solutions
-Deplacement de la bille : principe général</p>
+Deplacement de la bille : principe général -->
+<h1 id="introduction">Introduction</h1>
+<h2 id="description-de-lobjectif">Description de l&rsquo;objectif</h2>
+<p>Le but de ce projet est de construire une table basse contenant un dispositif permettant le tracé de formes géométriques dans le sable à l&rsquo;aide d&rsquo;une bille en acier. Cette sand table est inspirée de plusieurs projets similaires tels que <a href="https://www.instructables.com/Sand-Table/" target="_blank"> celui-ci </a> ou en encore <a href="https://sisyphus-industries.com/" target="_blank"> celui-là </a>.</p>
+<p>Le centre du travail à fournir est donc d&rsquo;une part la conception du dispositif de déplacement de l&rsquo;aimant permettant l&rsquo;entrainement de la bille, puis sa construction et son intégration à une table basse construite sur mesure. Il sera aussi nécessaire de réaliser l&rsquo;électronique et l&rsquo;algorithmique associées, ce qui sera fait dans un second temps.</p>
+<h1 id="conception-du-mécanisme">Conception du mécanisme</h1>
+<p>Le bac à sable de la table doit recouvrir la majorité de sa surface et la bille doit pouvoir en atteindre tout point. Pour ces 2 raisons, ainsi que par choix esthétique, une forme circulaire a été adoptée pour la table basse et le système d&rsquo;entrainement a été conçu à l&rsquo;aide d&rsquo;une tige filetée en rotation autour du centre de la table permettant la translation de l&rsquo;aimant le long de son rayon. Une première version de ce mécanisme impliquait 2 moteurs M1 et M2 (nécessaires au 2 degrés de liberté souhaités) placés conformément au schéma suivant, où A représente l&rsquo;aimant et R une roue libre.</p>
+<center>
+<img src="/images/projects/sandtable/schema_axe.webp" alt="Image not found !" width="80%"/>
+</center>
+&nbsp;
+<p>Cette première idée comportait néanmoins un problème majeur : la non gestion de l&rsquo;entortillement des fils nécessaires à l&rsquo;alimentation et au contrôle de M2. Plusieurs solutions permettent de palier à ce problème, mais celle retenue à été le déplacement des actionneurs à l&rsquo;aide de systèmes de transmission constitués d&rsquo;engrenages coniques pour M2 et d&rsquo;un système pignon/courroie pour M1.</p>
 <p>Le problème majeur dans ce projet est le déplacement de la bille. Nous avons opté pour un mode de guidée polaire. Le schéma ci dessous illustre ce fonctionnement :
 Déplacement de la bille : le bras</p>
 <p>Pour que l’aimant puisse se déplacer le long du bras nous utilisons un système de tige filetée. Le schéma ci dessous permet de mieux comprendre ce système.</p>
@@ -354,6 +365,10 @@ Démonstrations aux professeurs + aux autres groupes
 </script>
 
 <link rel="stylesheet" href="../../assets/scss/style.scss">
+
+
+<script type="text/javascript" src="/js/carousel.js"></script>
+<link rel="stylesheet" href="/scss/carousel.scss">
 
 
 </body>
