@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projets on Site de Marc Duclusaud</title>
+    <link>https://marcdcls.github.io/fr/projects/</link>
+    <description>Recent content in Projets on Site de Marc Duclusaud</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://marcdcls.github.io/fr/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Megabot</title>
+      <link>https://marcdcls.github.io/fr/projects/megabot/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/fr/projects/megabot/</guid>
+      <description>Introduction Qu&amp;rsquo;est-ce que le Megabot ? Le Megabot est un robot quadrupède de grande envergure pouvant transporter un passager et dont la vocation première est d&amp;rsquo;être présenté lors d&amp;rsquo;évènements liés à la robotique.</description>
+    </item>
+    
+    <item>
+      <title>Dymaxion Globe</title>
+      <link>https://marcdcls.github.io/fr/projects/dymaxion_globe/</link>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/fr/projects/dymaxion_globe/</guid>
+      <description>Projections de Fuller Les projections de Fuller  sont des projections cartographiques de la carte de la Terre sur des surfaces de polygones réguliers. Appliquées en 1946 sur un cuboctaèdre et en 1954 sur un icosaèdre, ces projections sont nommées Dymaxion map , pour dynamic maximim tension.</description>
+    </item>
+    
+    <item>
+      <title>Muscles artificiels pneumatiques</title>
+      <link>https://marcdcls.github.io/fr/projects/muscle_artificiel/</link>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/fr/projects/muscle_artificiel/</guid>
+      <description>Principe Les muscles artificiels pneumatiques, également appelés muscles de McKibben, sont des actionneurs comparables à des muscles biologiques dont le principe a été proposé dans les années 50 par Joseph McKibben.</description>
+    </item>
+    
+    <item>
+      <title>Sand Table</title>
+      <link>https://marcdcls.github.io/fr/projects/sandtable/</link>
+      <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/fr/projects/sandtable/</guid>
+      <description>Introduction Description de l&amp;rsquo;objectif Le but de ce projet est de construire une table basse contenant un dispositif permettant le tracé de formes géométriques dans le sable à l&amp;rsquo;aide d&amp;rsquo;une bille en acier.</description>
+    </item>
+    
+  </channel>
+</rss>
