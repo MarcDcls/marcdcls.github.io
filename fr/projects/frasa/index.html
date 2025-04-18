@@ -139,7 +139,7 @@
 					</div>
 					<div class="post-content post-excerpt">
 						<p><a href="https://github.com/Rhoban/frasa" target="_blank">Ce dépôt</a> contient un framework d&rsquo;entrainement pour un agent de RL dédié au relevage et à la récupération en cas de chute pour les robots humanoïdes. Il utilise l’algorithme CrossQ, une méthode état de l&rsquo;art permettant un entraînement rapide des agents de RL. L’apprentissage est réalisé dans un environnement simulé à l’aide du moteur physique MuJoCo.</p>
-<script type="text/javascript" src= '/js/pdf-js/build/pdf.js'></script>
+<p><script type="text/javascript" src= '/js/pdf-js/build/pdf.js'></script>
 
 <style>
   #embed-pdf-container {
@@ -387,6 +387,170 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-a2df2545" href="
     })();
 </script>
 
+<div class="embed-pdf-container" id="embed-pdf-container-c067b98d">
+    <div class="pdf-loadingWrapper" id="pdf-loadingWrapper-c067b98d">
+        <div class="pdf-loading" id="pdf-loading-c067b98d"></div>
+    </div>
+    <div id="overlayText">
+      <a href="https://marcdcls.github.io/pdf/frasa.pdf" aria-label="Download" download>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+            <path d="M9 13c.3 0 .5-.1.7-.3L15.4 7 14 5.6l-4 4V1H8v8.6l-4-4L2.6 7l5.7 5.7c.2.2.4.3.7.3zm-7 2h14v2H2z" />
+        </svg>
+      </a>
+    </div>
+    <canvas class="pdf-canvas" id="pdf-canvas-c067b98d"></canvas>
+</div>
+
+<div class="pdf-paginator" id="pdf-paginator-c067b98d">
+    <button id="pdf-prev-c067b98d">Previous</button>
+    <button id="pdf-next-c067b98d">Next</button> &nbsp; &nbsp;
+    <span>
+      <span class="pdf-pagenum" id="pdf-pagenum-c067b98d"></span> / <span class="pdf-pagecount" id="pdf-pagecount-c067b98d"></span>
+    </span>
+    <a class="pdf-source" id="pdf-source-c067b98d" href="https://marcdcls.github.io/pdf/frasa.pdf">[pdf]</a>
+</div>
+
+<noscript>
+View the PDF file <a class="pdf-source" id="pdf-source-noscript-c067b98d" href="https://marcdcls.github.io/pdf/frasa.pdf">here</a>.
+</noscript>
+
+<script type="text/javascript">
+    (function(){
+    var url = 'https:\/\/marcdcls.github.io\/pdf\/frasa.pdf';
+
+    var hidePaginator = "" === "true";
+    var hideLoader = "" === "true";
+    var selectedPageNum = parseInt("") || 1;
+
+    
+    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+    
+    if (pdfjsLib.GlobalWorkerOptions.workerSrc == '')
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "https:\/\/marcdcls.github.io" + 'js/pdf-js/build/pdf.worker.js';
+
+    
+    var pdfDoc = null,
+        pageNum = selectedPageNum,
+        pageRendering = false,
+        pageNumPending = null,
+        scale = 3,
+        canvas = document.getElementById('pdf-canvas-c067b98d'),
+        ctx = canvas.getContext('2d'),
+        paginator = document.getElementById("pdf-paginator-c067b98d"),
+        loadingWrapper = document.getElementById('pdf-loadingWrapper-c067b98d');
+
+
+    
+    showPaginator();
+    showLoader();
+
+    
+
+    function renderPage(num) {
+      pageRendering = true;
+      
+      pdfDoc.getPage(num).then(function(page) {
+        var viewport = page.getViewport({scale: scale});
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        
+        var renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+
+        
+        renderTask.promise.then(function() {
+          pageRendering = false;
+          showContent();
+
+          if (pageNumPending !== null) {
+            
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
+        });
+      });
+
+      
+      document.getElementById('pdf-pagenum-c067b98d').textContent = num;
+    }
+
+    
+
+    function showContent() {
+      loadingWrapper.style.display = 'none';
+      canvas.style.display = 'block';
+    }
+
+    
+
+    function showLoader() {
+      if(hideLoader) return
+      loadingWrapper.style.display = 'flex';
+      canvas.style.display = 'none';
+    }
+
+    
+
+    function showPaginator() {
+      if(hidePaginator) return
+      paginator.style.display = 'block';
+    }
+
+    
+
+    function queueRenderPage(num) {
+      if (pageRendering) {
+        pageNumPending = num;
+      } else {
+        renderPage(num);
+      }
+    }
+
+    
+
+    function onPrevPage() {
+      if (pageNum <= 1) {
+        return;
+      }
+      pageNum--;
+      queueRenderPage(pageNum);
+    }
+    document.getElementById('pdf-prev-c067b98d').addEventListener('click', onPrevPage);
+
+    
+
+    function onNextPage() {
+      if (pageNum >= pdfDoc.numPages) {
+        return;
+      }
+      pageNum++;
+      queueRenderPage(pageNum);
+    }
+    document.getElementById('pdf-next-c067b98d').addEventListener('click', onNextPage);
+
+    
+
+    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+      pdfDoc = pdfDoc_;
+      var numPages = pdfDoc.numPages;
+      document.getElementById('pdf-pagecount-c067b98d').textContent = numPages;
+
+      
+      if(pageNum > numPages) {
+        pageNum = numPages
+      }
+
+      
+      renderPage(pageNum);
+    });
+    })();
+</script>
+</p>
 <p> </p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
