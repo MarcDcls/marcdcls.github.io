@@ -6,7 +6,25 @@
     <description>Recent content in Projets on Site de Marc Duclusaud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://marcdcls.github.io/fr/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://marcdcls.github.io/fr/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Better Actuator Models</title>
+      <link>https://marcdcls.github.io/fr/projects/bam/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/fr/projects/bam/</guid>
+      <description>Ce dépôt contient l’implémentation de modèles de friction étendus pour la simulation physique de servo-actionneurs. Les modèles proposés réduisent significativement l’écart entre la simulation et le réel, un enjeu particulièrement important en apprentissage par renforcement.</description>
+    </item>
+    
+    <item>
+      <title>Fall Recovery And Stand Up Agent</title>
+      <link>https://marcdcls.github.io/fr/projects/frasa/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/fr/projects/frasa/</guid>
+      <description>Ce dépôt contient un framework d&amp;rsquo;entrainement pour un agent de RL dédié au relevage et à la récupération en cas de chute pour les robots humanoïdes. Il utilise l’algorithme CrossQ, une méthode état de l&amp;rsquo;art permettant un entraînement rapide des agents de RL.</description>
+    </item>
+    
     <item>
       <title>Megabot</title>
       <link>https://marcdcls.github.io/fr/projects/megabot/</link>
@@ -17,21 +35,21 @@
     </item>
     
     <item>
+      <title>Muscles artificiels pneumatiques</title>
+      <link>https://marcdcls.github.io/fr/projects/muscle_artificiel/</link>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/fr/projects/muscle_artificiel/</guid>
+      <description>Principe Les muscles artificiels pneumatiques, également appelés muscles de McKibben, sont des actionneurs comparables à des muscles biologiques dont le principe a été proposé dans les années 50 par Joseph McKibben.</description>
+    </item>
+    
+    <item>
       <title>Dymaxion Globe</title>
       <link>https://marcdcls.github.io/fr/projects/dymaxion_globe/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://marcdcls.github.io/fr/projects/dymaxion_globe/</guid>
       <description>Projections de Fuller Les projections de Fuller  sont des projections cartographiques de la carte de la Terre sur des surfaces de polygones réguliers. Appliquées en 1946 sur un cuboctaèdre et en 1954 sur un icosaèdre, ces projections sont nommées Dymaxion map , pour dynamic maximim tension.</description>
-    </item>
-    
-    <item>
-      <title>Muscles artificiels pneumatiques</title>
-      <link>https://marcdcls.github.io/fr/projects/muscle_artificiel/</link>
-      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://marcdcls.github.io/fr/projects/muscle_artificiel/</guid>
-      <description>Principe Les muscles artificiels pneumatiques, également appelés muscles de McKibben, sont des actionneurs comparables à des muscles biologiques dont le principe a été proposé dans les années 50 par Joseph McKibben.</description>
     </item>
     
     <item>

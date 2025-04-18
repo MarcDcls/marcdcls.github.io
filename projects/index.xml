@@ -6,7 +6,25 @@
     <description>Recent content in Projects on Marc Duclusaud&#39;s website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://marcdcls.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://marcdcls.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Better Actuator Models</title>
+      <link>https://marcdcls.github.io/projects/bam/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/projects/bam/</guid>
+      <description>This repository contains the implementation of extended friction models for the physical simulation of servo actuators. The proposed models significantly reduce the sim-to-real gap, which is particularly important in reinforcement learning.</description>
+    </item>
+    
+    <item>
+      <title>Fall Recovery And Stand Up Agent</title>
+      <link>https://marcdcls.github.io/projects/frasa/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/projects/frasa/</guid>
+      <description>This repository contains a framework for training a fall recovery and stand up reinforcement learning agent for humanoid robots. It uses the CrossQ algorithm, a state-of-the-art method for rapidly training agents.</description>
+    </item>
+    
     <item>
       <title>Megabot</title>
       <link>https://marcdcls.github.io/projects/megabot/</link>
@@ -17,21 +35,21 @@
     </item>
     
     <item>
+      <title>Pneumatic artificial muscles</title>
+      <link>https://marcdcls.github.io/projects/muscle_artificiel/</link>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://marcdcls.github.io/projects/muscle_artificiel/</guid>
+      <description>Principle Pneumatic artificial muscles, also known as McKibben muscles, are actuators comparable to biological muscles, the principle of which was proposed in the 1950s by Joseph McKibben. They are capable of contraction, meaning that when activated, they change from an initial resting elongation to a reduced elongation.</description>
+    </item>
+    
+    <item>
       <title>Dymaxion Globe</title>
       <link>https://marcdcls.github.io/projects/dymaxion_globe/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://marcdcls.github.io/projects/dymaxion_globe/</guid>
       <description>Fuller&amp;rsquo;s Projections The Fuller&amp;rsquo;s projections  are cartographic projections of the Earth&amp;rsquo;s map onto regular polygonal surfaces. Applied in 1946 to a cuboctahedron and in 1954 to an icosahedron, these projections are called the Dymaxion map, from dynamic maximum tension.</description>
-    </item>
-    
-    <item>
-      <title>Pneumatic artificial muscles</title>
-      <link>https://marcdcls.github.io/projects/muscle_artificiel/</link>
-      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://marcdcls.github.io/projects/muscle_artificiel/</guid>
-      <description>Principle Pneumatic artificial muscles, also known as McKibben muscles, are actuators comparable to biological muscles, the principle of which was proposed in the 1950s by Joseph McKibben. They are capable of contraction, meaning that when activated, they change from an initial resting elongation to a reduced elongation.</description>
     </item>
     
     <item>

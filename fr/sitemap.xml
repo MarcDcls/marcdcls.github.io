@@ -2,6 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://marcdcls.github.io/fr/projects/bam/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://marcdcls.github.io/projects/bam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://marcdcls.github.io/fr/projects/bam/"
+                />
+  </url><url>
+    <loc>https://marcdcls.github.io/fr/projects/frasa/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://marcdcls.github.io/projects/frasa/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://marcdcls.github.io/fr/projects/frasa/"
+                />
+  </url><url>
+    <loc>https://marcdcls.github.io/fr/projects/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://marcdcls.github.io/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://marcdcls.github.io/fr/projects/"
+                />
+  </url><url>
+    <loc>https://marcdcls.github.io/fr/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://marcdcls.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://marcdcls.github.io/fr/"
+                />
+  </url><url>
     <loc>https://marcdcls.github.io/fr/projects/megabot/</loc>
     <lastmod>2021-10-17T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -15,30 +67,17 @@
                 href="https://marcdcls.github.io/fr/projects/megabot/"
                 />
   </url><url>
-    <loc>https://marcdcls.github.io/fr/projects/</loc>
-    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
+    <loc>https://marcdcls.github.io/fr/projects/muscle_artificiel/</loc>
+    <lastmod>2021-10-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://marcdcls.github.io/projects/"
+                href="https://marcdcls.github.io/projects/muscle_artificiel/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://marcdcls.github.io/fr/projects/"
-                />
-  </url><url>
-    <loc>https://marcdcls.github.io/fr/</loc>
-    <lastmod>2021-10-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://marcdcls.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://marcdcls.github.io/fr/"
+                href="https://marcdcls.github.io/fr/projects/muscle_artificiel/"
                 />
   </url><url>
     <loc>https://marcdcls.github.io/fr/projects/dymaxion_globe/</loc>
@@ -52,19 +91,6 @@
                 rel="alternate"
                 hreflang="fr"
                 href="https://marcdcls.github.io/fr/projects/dymaxion_globe/"
-                />
-  </url><url>
-    <loc>https://marcdcls.github.io/fr/projects/muscle_artificiel/</loc>
-    <lastmod>2021-09-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://marcdcls.github.io/projects/muscle_artificiel/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://marcdcls.github.io/fr/projects/muscle_artificiel/"
                 />
   </url><url>
     <loc>https://marcdcls.github.io/fr/projects/sandtable/</loc>
