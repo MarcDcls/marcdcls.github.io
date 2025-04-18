@@ -139,7 +139,7 @@
 					</div>
 					<div class="post-content post-excerpt">
 						<p><a href="https://github.com/Rhoban/bam" target="_blank">Ce dépôt</a> contient l’implémentation de modèles de friction étendus pour la simulation physique de servo-actionneurs. Les modèles proposés réduisent significativement l’écart entre la simulation et le réel, un enjeu particulièrement important en apprentissage par renforcement. Les modèles sont validés à l’aide de bras 2R, et une méthode permettant de les utiliser avec MuJoCo est également fournie.</p>
-<script src= '/js/pdf-js/build/pdf.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.min.js" integrity="sha256-UZQVSEoMbJ82/3uFjt4mYOTVVHIImtkp7u3L6LMH6/Y=" crossorigin="anonymous"></script>
 
 <style>
   #embed-pdf-container {
@@ -167,7 +167,7 @@
   }
   
   
-  .pdf-loadingWrapper {
+  #loadingWrapper {
     display: none;
     justify-content: center;
     align-items: center;
@@ -175,7 +175,7 @@
     height: 350px;
   }
   
-  .pdf-loading {
+  #loading {
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -223,36 +223,29 @@
   @-webkit-keyframes spin {
     to { -webkit-transform: rotate(360deg); }
   }
-  </style><div class="embed-pdf-container" id="embed-pdf-container-98e9375b">
-    <div class="pdf-loadingWrapper" id="pdf-loadingWrapper-98e9375b">
-        <div class="pdf-loading" id="pdf-loading-98e9375b"></div>
+  </style><div class="embed-pdf-container" id="embed-pdf-container-cc2c14d7">
+    <div class="pdf-loadingWrapper" id="pdf-loadingWrapper-cc2c14d7">
+        <div class="pdf-loading" id="pdf-loading-cc2c14d7"></div>
     </div>
-    <div id="overlayText">
-      <a href="./pdf/bam.pdf" aria-label="Download" download>
-        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-            <path d="M9 13c.3 0 .5-.1.7-.3L15.4 7 14 5.6l-4 4V1H8v8.6l-4-4L2.6 7l5.7 5.7c.2.2.4.3.7.3zm-7 2h14v2H2z" />
-        </svg>
-      </a>
-    </div>
-    <canvas class="pdf-canvas" id="pdf-canvas-98e9375b"></canvas>
+    <canvas class="pdf-canvas" id="pdf-canvas-cc2c14d7"></canvas>
 </div>
 
-<div class="pdf-paginator" id="pdf-paginator-98e9375b">
-    <button id="pdf-prev-98e9375b">Previous</button>
-    <button id="pdf-next-98e9375b">Next</button> &nbsp; &nbsp;
+<div class="pdf-paginator" id="pdf-paginator-cc2c14d7">
+    <button id="pdf-prev-cc2c14d7">Previous</button>
+    <button id="pdf-next-cc2c14d7">Next</button> &nbsp; &nbsp;
     <span>
-      <span class="pdf-pagenum" id="pdf-pagenum-98e9375b"></span> / <span class="pdf-pagecount" id="pdf-pagecount-98e9375b"></span>
+      <span class="pdf-pagenum" id="pdf-pagenum-cc2c14d7"></span> / <span class="pdf-pagecount" id="pdf-pagecount-cc2c14d7"></span>
     </span>
-    <a class="pdf-source" id="pdf-source-98e9375b" href="./pdf/bam.pdf">[pdf]</a>
+    <a class="pdf-source" id="pdf-source-cc2c14d7" href="/pdf/bam.pdf">[pdf]</a>
 </div>
 
 <noscript>
-View the PDF file <a class="pdf-source" id="pdf-source-noscript-98e9375b" href="./pdf/bam.pdf">here</a>.
+View the PDF file <a class="pdf-source" id="pdf-source-noscript-cc2c14d7" href="/pdf/bam.pdf">here</a>.
 </noscript>
 
 <script type="text/javascript">
     (function(){
-    var url = '.\/pdf\/bam.pdf';
+    var url = '\/pdf\/bam.pdf';
 
     var hidePaginator = "" === "true";
     var hideLoader = "" === "true";
@@ -263,7 +256,7 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-98e9375b" href="
 
     
     if (pdfjsLib.GlobalWorkerOptions.workerSrc == '')
-      pdfjsLib.GlobalWorkerOptions.workerSrc = "https:\/\/marcdcls.github.io" + 'js/pdf-js/build/pdf.worker.js';
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js';
 
     
     var pdfDoc = null,
@@ -271,10 +264,10 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-98e9375b" href="
         pageRendering = false,
         pageNumPending = null,
         scale = 3,
-        canvas = document.getElementById('pdf-canvas-98e9375b'),
+        canvas = document.getElementById('pdf-canvas-cc2c14d7'),
         ctx = canvas.getContext('2d'),
-        paginator = document.getElementById("pdf-paginator-98e9375b"),
-        loadingWrapper = document.getElementById('pdf-loadingWrapper-98e9375b');
+        paginator = document.getElementById("pdf-paginator-cc2c14d7"),
+        loadingWrapper = document.getElementById('pdf-loadingWrapper-cc2c14d7');
 
 
     
@@ -312,7 +305,7 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-98e9375b" href="
       });
 
       
-      document.getElementById('pdf-pagenum-98e9375b').textContent = num;
+      document.getElementById('pdf-pagenum-cc2c14d7').textContent = num;
     }
 
     
@@ -356,7 +349,7 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-98e9375b" href="
       pageNum--;
       queueRenderPage(pageNum);
     }
-    document.getElementById('pdf-prev-98e9375b').addEventListener('click', onPrevPage);
+    document.getElementById('pdf-prev-cc2c14d7').addEventListener('click', onPrevPage);
 
     
 
@@ -367,14 +360,14 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-98e9375b" href="
       pageNum++;
       queueRenderPage(pageNum);
     }
-    document.getElementById('pdf-next-98e9375b').addEventListener('click', onNextPage);
+    document.getElementById('pdf-next-cc2c14d7').addEventListener('click', onNextPage);
 
     
 
     pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
       pdfDoc = pdfDoc_;
       var numPages = pdfDoc.numPages;
-      document.getElementById('pdf-pagecount-98e9375b').textContent = numPages;
+      document.getElementById('pdf-pagecount-cc2c14d7').textContent = numPages;
 
       
       if(pageNum > numPages) {

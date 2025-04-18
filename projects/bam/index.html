@@ -139,7 +139,7 @@
 					</div>
 					<div class="post-content post-excerpt">
 						<p><a href="https://github.com/Rhoban/bam" target="_blank">This repository</a> contains the implementation of extended friction models for the physical simulation of servo actuators. The proposed models significantly reduce the sim-to-real gap, which is particularly important in reinforcement learning. The models are tested on 2R arms for validation. A method to use these models with MuJoCo is also provided.</p>
-<script src= '/js/pdf-js/build/pdf.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.min.js" integrity="sha256-UZQVSEoMbJ82/3uFjt4mYOTVVHIImtkp7u3L6LMH6/Y=" crossorigin="anonymous"></script>
 
 <style>
   #embed-pdf-container {
@@ -167,7 +167,7 @@
   }
   
   
-  .pdf-loadingWrapper {
+  #loadingWrapper {
     display: none;
     justify-content: center;
     align-items: center;
@@ -175,7 +175,7 @@
     height: 350px;
   }
   
-  .pdf-loading {
+  #loading {
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -227,13 +227,6 @@
     <div class="pdf-loadingWrapper" id="pdf-loadingWrapper-cc2c14d7">
         <div class="pdf-loading" id="pdf-loading-cc2c14d7"></div>
     </div>
-    <div id="overlayText">
-      <a href="/pdf/bam.pdf" aria-label="Download" download>
-        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-            <path d="M9 13c.3 0 .5-.1.7-.3L15.4 7 14 5.6l-4 4V1H8v8.6l-4-4L2.6 7l5.7 5.7c.2.2.4.3.7.3zm-7 2h14v2H2z" />
-        </svg>
-      </a>
-    </div>
     <canvas class="pdf-canvas" id="pdf-canvas-cc2c14d7"></canvas>
 </div>
 
@@ -263,7 +256,7 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-cc2c14d7" href="
 
     
     if (pdfjsLib.GlobalWorkerOptions.workerSrc == '')
-      pdfjsLib.GlobalWorkerOptions.workerSrc = "https:\/\/marcdcls.github.io" + 'js/pdf-js/build/pdf.worker.js';
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.worker.min.js';
 
     
     var pdfDoc = null,
